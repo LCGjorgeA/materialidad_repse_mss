@@ -108,3 +108,11 @@ export const auditOriginEnum = pgEnum("audit_origin_t", [
   "job",
   "system",
 ]);
+
+// document.status — DDL usa varchar(20), aquí se modela como enum para integridad
+export const documentStatusEnum = pgEnum("document_status_t", [
+  "active",
+  "replaced",
+  "retired",
+  "broken_link",
+]);
