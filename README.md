@@ -4,7 +4,7 @@ Aplicación web interna para operar el proyecto de integración y resguardo del 
 
 El Portal **no es un gestor documental**. SharePoint sigue siendo el repositorio oficial de archivos; el Portal es la capa de control, workflow, metadatos y analítica que se coloca encima: sabe qué documentación debe existir, qué se recibió, quién la entregó, si fue validada, dónde quedó, y cuánto falta.
 
-> **Estado actual: fase de definición.** Este repositorio contiene únicamente los documentos que van a guiar el desarrollo. Todavía no hay código.
+> **Estado: desarrollo en curso.** El Portal se está construyendo — ver [DEVELOPMENT.md](DEVELOPMENT.md) para el estado, la estructura del código y cómo correrlo localmente. Sitio en vivo (skeleton): https://materialidad-repse-mss.vercel.app
 
 ---
 

@@ -2,18 +2,14 @@ name: CI
 
 on:
   pull_request:
-    paths:
-      - "app/**"
-      - ".github/workflows/ci.yml"
+    paths-ignore:
+      - "docs/**"
+      - "*.md"
   push:
     branches: [main]
-    paths:
-      - "app/**"
-      - ".github/workflows/ci.yml"
-
-defaults:
-  run:
-    working-directory: app
+    paths-ignore:
+      - "docs/**"
+      - "*.md"
 
 jobs:
   lint-typecheck-build:
@@ -25,7 +21,7 @@ jobs:
         with:
           node-version: "22"
           cache: "npm"
-          cache-dependency-path: app/package-lock.json
+          cache-dependency-path: package-lock.json
 
       - name: Install dependencies
         run: npm ci

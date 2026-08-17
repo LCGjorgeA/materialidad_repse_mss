@@ -1,6 +1,6 @@
-# Portal de Materialidad y Expediente MSS — App
+# Desarrollo — Portal de Materialidad y Expediente MSS
 
-Implementación del Portal descrito en [`../docs`](../docs). Stack: Next.js (App Router, TypeScript), Drizzle ORM, PostgreSQL. Ver el plan de fases en `../` (arranque documentado en la conversación de planeación) y la arquitectura completa en [`03_ARQUITECTURA_TECNICA.md`](../docs/03_ARQUITECTURA_TECNICA.md).
+Implementación del Portal descrito en [`docs/`](docs/). Stack: Next.js (App Router, TypeScript), Drizzle ORM, PostgreSQL. Arquitectura completa en [`03_ARQUITECTURA_TECNICA.md`](docs/03_ARQUITECTURA_TECNICA.md).
 
 **Base de datos: Neon (Vercel Postgres)**, vía la integración de marketplace conectada al proyecto de Vercel. Es la fuente de verdad compartida por dev/preview/producción — no una base local por desarrollador. `.env.local` se llena automáticamente con `vercel env pull` (ver abajo) y nunca se commitea.
 
@@ -48,8 +48,14 @@ src/
 └── app/                    # Rutas Next.js (App Router)
 ```
 
-Cada módulo corresponde 1:1 al rango `FR-` del [PRD](../docs/01_PRD.md) §8, para que el mapeo requisito → código sea directo.
+Cada módulo corresponde 1:1 al rango `FR-` del [PRD](docs/01_PRD.md) §8, para que el mapeo requisito → código sea directo.
 
 ## Estado
 
 **Fase 0 completa. Fase 1 en curso.** Esquema de base de datos para taxonomía, requisitos e instancias definido, migrado y sembrado contra Neon (producción). UI de skeleton navegable en `src/app/(portal)` con datos mock (`src/lib/mock-data.ts`). Pendiente: servicio de generación de instancias, endpoints de API reales, conectar la UI a esos endpoints.
+
+## Despliegue
+
+Hosting en Vercel, conectado a este repositorio para auto-deploy en cada push a `main`. CI en GitHub Actions (`.github/workflows/ci.yml`) corre lint + typecheck + build en cada PR.
+
+**Nota de infraestructura:** el proyecto de Next.js vive en la raíz del repositorio junto con `docs/` — no en un subdirectorio. Se decidió así después de que la configuración de "Root Directory" de Vercel para monorepos interactuara mal con la restauración de caché de build de Next.js 16, causando fallos intermitentes de `next build` en los despliegues disparados por `git push` (ver historial de commits alrededor del 17-ago-2026 para el diagnóstico completo).
