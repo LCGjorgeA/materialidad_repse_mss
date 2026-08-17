@@ -1,15 +1,27 @@
 # Portal de Materialidad y Expediente MSS — App
 
-Implementación del Portal descrito en [`../docs`](../docs). Stack: Next.js (App Router, TypeScript), Drizzle ORM, PostgreSQL 16. Ver el plan de fases en `../` (arranque documentado en la conversación de planeación) y la arquitectura completa en [`03_ARQUITECTURA_TECNICA.md`](../docs/03_ARQUITECTURA_TECNICA.md).
+Implementación del Portal descrito en [`../docs`](../docs). Stack: Next.js (App Router, TypeScript), Drizzle ORM, PostgreSQL. Ver el plan de fases en `../` (arranque documentado en la conversación de planeación) y la arquitectura completa en [`03_ARQUITECTURA_TECNICA.md`](../docs/03_ARQUITECTURA_TECNICA.md).
+
+**Base de datos: Neon (Vercel Postgres)**, vía la integración de marketplace conectada al proyecto de Vercel. Es la fuente de verdad compartida por dev/preview/producción — no una base local por desarrollador. `.env.local` se llena automáticamente con `vercel env pull` (ver abajo) y nunca se commitea.
 
 ## Arranque local
 
 ```bash
 npm install
-cp .env.example .env.local   # ajustar DATABASE_URL si hace falta
+vercel link            # solo la primera vez, si el directorio no está ya vinculado
+vercel env pull .env.local
+npm run db:migrate     # aplica las migraciones generadas contra Neon
+npm run db:seed        # carga catálogos semilla (FR-009): frentes, áreas, servicios, tipos — idempotente solo en base vacía
+npm run dev
+```
+
+**Alternativa sin cuenta de Vercel** (Postgres local con Docker, no la base compartida):
+
+```bash
+cp .env.example .env.local   # DATABASE_URL apunta a localhost
 npm run db:up                # levanta Postgres 16 vía Docker Compose
-npm run db:migrate           # aplica las migraciones generadas
-npm run db:seed              # carga catálogos semilla (FR-009): frentes, áreas, servicios, tipos
+npm run db:migrate
+npm run db:seed
 npm run dev
 ```
 
@@ -40,4 +52,4 @@ Cada módulo corresponde 1:1 al rango `FR-` del [PRD](../docs/01_PRD.md) §8, pa
 
 ## Estado
 
-**Fase 0 (bootstrap) + inicio de Fase 1 (núcleo del dominio).** Esquema de base de datos para taxonomía, requisitos e instancias ya definido y migración generada. Pendiente: servicios de generación de instancias, endpoints de API, UI del Inventario Maestro.
+**Fase 0 completa. Fase 1 en curso.** Esquema de base de datos para taxonomía, requisitos e instancias definido, migrado y sembrado contra Neon (producción). UI de skeleton navegable en `src/app/(portal)` con datos mock (`src/lib/mock-data.ts`). Pendiente: servicio de generación de instancias, endpoints de API reales, conectar la UI a esos endpoints.
