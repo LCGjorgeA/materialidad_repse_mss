@@ -34,8 +34,8 @@ export function FileDropZone({
         disabled
           ? "cursor-not-allowed border-zinc-200 bg-zinc-50 opacity-60 dark:border-zinc-800 dark:bg-zinc-900/40"
           : isDragOver
-            ? "border-zinc-400 bg-zinc-50 dark:border-zinc-600 dark:bg-zinc-900/60"
-            : "border-zinc-300 bg-white hover:border-zinc-400 dark:border-zinc-700 dark:bg-zinc-950"
+            ? "border-brand-accent bg-brand-mint/20 dark:border-brand-accent dark:bg-brand-accent/10"
+            : "border-zinc-300 bg-white hover:border-brand-accent/60 dark:border-zinc-700 dark:bg-zinc-950"
       }`}
     >
       <div className="text-3xl">📄</div>
@@ -46,7 +46,7 @@ export function FileDropZone({
         type="button"
         disabled={disabled}
         onClick={() => inputRef.current?.click()}
-        className="mt-3 rounded-md bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
+        className="mt-3 rounded-md bg-brand-primary px-4 py-2 text-sm font-medium text-white hover:bg-brand-primary/90 disabled:cursor-not-allowed disabled:opacity-50"
       >
         Selecciona…
       </button>

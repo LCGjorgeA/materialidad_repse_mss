@@ -190,7 +190,7 @@ export function UploadForm({
               <button
                 type="button"
                 onClick={() => file && handleFileSelected(file)}
-                className="rounded-md bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900"
+                className="rounded-md bg-brand-primary px-4 py-2 text-sm font-medium text-white hover:bg-brand-primary/90"
               >
                 Reintentar
               </button>
@@ -199,7 +199,7 @@ export function UploadForm({
                 type="button"
                 onClick={() => submit()}
                 disabled={stage.name === "uploading"}
-                className="rounded-md bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-zinc-100 dark:text-zinc-900"
+                className="rounded-md bg-brand-accent px-4 py-2 text-sm font-medium text-zinc-950 hover:bg-brand-accent/90 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {stage.name === "uploading" ? "Entregando…" : "Entregar"}
               </button>

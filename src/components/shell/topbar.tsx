@@ -32,7 +32,7 @@ export function Topbar() {
         href="/perfil"
         className="flex items-center gap-2 rounded-md px-2 py-1.5 text-sm text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-900"
       >
-        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-zinc-900 text-xs font-medium text-white dark:bg-zinc-100 dark:text-zinc-900">
+        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-brand-primary text-xs font-medium text-white dark:bg-brand-accent dark:text-zinc-950">
           JG
         </span>
         <span className="hidden sm:inline">Jorge González</span>

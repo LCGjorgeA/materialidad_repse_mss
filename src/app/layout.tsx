@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   title: "Portal de Materialidad y Expediente MSS",
   description:
     "Control, workflow, metadatos y analítica del proyecto de cierre de MSS.",
+  icons: {
+    icon: "/brand/emblem.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

@@ -17,13 +17,13 @@ export function PageHeader({
   actions?: ReactNode;
 }) {
   return (
-    <div className="mb-6 flex flex-col gap-2 border-b border-zinc-200 pb-5 dark:border-zinc-800">
+    <div className="mb-6 flex flex-col gap-2 border-b-2 border-b-brand-primary/15 pb-5 dark:border-b-brand-accent/20">
       {crumbs && crumbs.length > 0 && (
         <nav aria-label="Migas de pan" className="text-xs text-zinc-500 dark:text-zinc-400">
           {crumbs.map((c, i) => (
             <span key={`${c.label}-${i}`}>
               {c.href ? (
-                <Link href={c.href} className="hover:text-zinc-900 dark:hover:text-zinc-100">
+                <Link href={c.href} className="hover:text-brand-primary dark:hover:text-brand-accent">
                   {c.label}
                 </Link>
               ) : (
@@ -40,7 +40,7 @@ export function PageHeader({
             {title}
           </h1>
           {scCode && (
-            <span className="rounded-full border border-zinc-200 px-2 py-0.5 font-mono text-[11px] text-zinc-500 dark:border-zinc-700 dark:text-zinc-400">
+            <span className="rounded-full border border-brand-primary/25 px-2 py-0.5 font-mono text-[11px] text-brand-primary dark:border-brand-accent/40 dark:text-brand-accent">
               {scCode}
             </span>
           )}

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { PageHeader } from "@/components/ui/page-header";
 import { StatCard } from "@/components/ui/stat-card";
 import { ConstructionNote } from "@/components/ui/construction-note";
@@ -8,6 +9,29 @@ import { areaProgress, projectKpis } from "@/lib/mock-data";
 export default function InicioPage() {
   return (
     <>
+      <div className="relative mb-6 flex h-28 items-center overflow-hidden rounded-xl px-6">
+        <Image
+          src="/brand/gradient-hero.png"
+          alt=""
+          fill
+          priority
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-brand-primary/35" />
+        <div className="relative">
+          <Image
+            src="/brand/logo-lockup-light.png"
+            alt="London Consulting Group"
+            width={480}
+            height={116}
+            className="h-7 w-auto"
+          />
+          <p className="mt-2 text-sm font-medium text-white/90">
+            Portal de Materialidad y Expediente MSS
+          </p>
+        </div>
+      </div>
+
       <PageHeader
         title="Inicio"
         scCode="SC-001"
@@ -71,7 +95,7 @@ function ProgressCell({ pct }: { pct: number }) {
   return (
     <div className="flex items-center gap-2">
       <div className="h-1.5 w-24 overflow-hidden rounded-full bg-zinc-200 dark:bg-zinc-800">
-        <div className="h-full rounded-full bg-zinc-900 dark:bg-zinc-100" style={{ width: `${pct}%` }} />
+        <div className="h-full rounded-full bg-brand-accent" style={{ width: `${pct}%` }} />
       </div>
       <span className="tabular-nums text-zinc-600 dark:text-zinc-400">{pct}%</span>
     </div>

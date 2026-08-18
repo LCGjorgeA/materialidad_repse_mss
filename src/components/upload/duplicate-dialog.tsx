@@ -51,7 +51,7 @@ export function DuplicateDialog({
             type="button"
             disabled={busy}
             onClick={() => onChoose("link")}
-            className="rounded-md bg-zinc-900 px-3 py-2 text-sm font-medium text-white hover:bg-zinc-800 disabled:opacity-50 dark:bg-zinc-100 dark:text-zinc-900"
+            className="rounded-md bg-brand-primary px-3 py-2 text-sm font-medium text-white hover:bg-brand-primary/90 disabled:opacity-50"
           >
             Vincular el documento existente a esta instancia
           </button>

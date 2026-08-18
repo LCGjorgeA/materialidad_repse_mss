@@ -3,11 +3,21 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* London Consulting Group brand palette (Pantone 3302 C / Green C / 331 C / 663 C) */
+  --brand-primary: #004a43;
+  --brand-accent: #00b880;
+  --brand-mint: #a9f6e8;
+  --brand-cream: #f3eeeb;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-accent: var(--brand-accent);
+  --color-brand-mint: var(--brand-mint);
+  --color-brand-cream: var(--brand-cream);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
