@@ -19,12 +19,19 @@ export const projectStatus = {
 };
 
 // FR-710/711 — indicadores del tablero de proyecto, sobre instancias.
-export const projectKpis = [
+export type ProjectKpi = {
+  label: string;
+  value: number;
+  hint?: string;
+  emphasis?: boolean;
+};
+
+export const projectKpis: ProjectKpi[] = [
   { label: "Requisitos totales", value: 214, hint: "Inventario Maestro" },
   { label: "Instancias esperadas", value: 8_412, hint: "Denominador de cobertura" },
   { label: "Instancias recopiladas", value: 4_927, hint: "58.6 % del total" },
-  { label: "Instancias validadas", value: 3_801, hint: "45.2 % del total" },
-  { label: "Excepciones abiertas", value: 17, hint: "Requieren validador final" },
+  { label: "Instancias validadas", value: 3_801, hint: "45.2 % del total", emphasis: true },
+  { label: "Excepciones abiertas", value: 17, hint: "Requieren validador final", emphasis: true },
   { label: "Requisitos cerrados", value: 22, hint: "de 214" },
 ];
 

@@ -17,7 +17,7 @@ export function PageHeader({
   actions?: ReactNode;
 }) {
   return (
-    <div className="mb-6 flex flex-col gap-2 border-b-2 border-b-brand-primary/15 pb-5 dark:border-b-brand-accent/20">
+    <div className="mb-5 flex flex-col gap-2 border-b border-zinc-200 pb-4 dark:border-zinc-800">
       {crumbs && crumbs.length > 0 && (
         <nav aria-label="Migas de pan" className="text-xs text-zinc-500 dark:text-zinc-400">
           {crumbs.map((c, i) => (
